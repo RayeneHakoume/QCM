@@ -1,0 +1,53 @@
+for(let k=0; k<state.NbTotalRep;k++){
+				
+				if (state.currentQuizz === state.MyRep[k].quiz_id){
+					
+					html = html + `<p><label><input onclick="envoieSansBtn(${i},${j})" class="btn` + i + `-`+ j +`" type="radio" id="` + j + `"name="` + data[i].question_id  + `"value="` + data[i].propositions[j].content +`"checked/> <span>` + data[i].propositions[j].content + `</span> </label> </p>`;	
+
+					
+				}else {		  
+						html = html + `<p><label><input onclick="envoieSansBtn(${i},${j})" class="btn` + i + `-`+ j +`" type="radio" id="` + j + `"name="` + data[i].question_id  + `"value="` + data[i].propositions[j].content +`"/> <span>` + data[i].propositions[j].content + `</span> </label> </p>`;	
+					  }	
+}
+			
+			
+var colors = ["Blue", "Red", "Orange", "Green"];
+    
+// Vérifie si la valeur existe dans le tableau
+if(colors.indexOf("Green") !== -1){
+       alert("La valeur existe!")
+} else{
+       alert("La valeur n'existe pas!")
+}
+
+var colors = ["Blue", "Red", "Orange", "Green"];
+alert(colors.includes("Blue"));
+alert(colors.includes("Yellow")); 
+alert(colors.includes("Red"));
+alert(colors.includes("Gray"));			
+			
+			
+console.log(auto instanceof Car);
+			
+			
+			
+radiobtn = document.getElementById(j);
+radiobtn.checked = true;
+
+
+months.forEach(function(month, index, array) {
+ console.log("Mois à l'indice "+index+"/"+array.length+" : "+month.toUpperCase());
+});
+
+
+
+
+
+
+ /* let idBoutonChecked = document.getElementsByClassName("btn" + i + "-"+ j).value;
+		  console.log(idBoutonChecked);*/
+		
+		/*if($('#'j).is(':checked'))
+		{
+		 alert("Mon bouton radio a été coché");
+		}*/

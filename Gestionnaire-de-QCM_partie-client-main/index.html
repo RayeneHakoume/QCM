@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="css/materialicons.css" />
+    <link rel="stylesheet" href="css/materialize.min.css" />
+    <script type="text/javascript" src="js/materialize.min.js" defer></script>
+    <!--script defer src="js/script.js"></script-->
+    <meta charset="UTF-8" />
+    <title>LIFAP5 2019-2020 - Client</title>
+  </head>
+
+  <!-- Modal Structure -->
+  <div id="id-modal-quizz-menu" class="modal">
+    <div class="modal-content" id="contentmodal1"></div>
+    <div class="modal-content" id="contentmodal2"></div>
+    <div class="modal-content" id="contentmodal3"></div>
+
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">OK</a>
+    </div>
+  </div>
+
+  <body>
+    <header>
+      <nav class="nav-extended blue-grey lighten-1">
+        <div class="navbar-fixed">
+          <nav>
+            <div class="nav-wrapper blue-grey">
+              <a href="#!" class="brand-logo  center">Quizzz<i class="material-icons right">question_answer</i></a>
+              <ul class="right hide-on-med-and-down">
+                <li>
+                  <form>
+                    <div class="input-field  blue-grey lighten-3">
+                      <input id="search" type="search" placeholder="rechercher" required />
+                      <label class="label-icon" for="search" ><i class="material-icons">search</i></label>
+                      <i class="material-icons">close</i>
+                    </div>
+                  </form>
+                </li>
+                <li>
+					<i id="id-login" class="indigo material-icons">face</i>
+                </li>
+              </ul>
+            </div>
+            <!-- nav-wrapper  -->
+          </nav>
+        </div>
+        <!-- navbar-fixed -->
+        <div class="nav-content">
+          <ul class="tabs tabs-transparent tabs-fixed-width">
+            <li class="tab">
+              <a class="active" href="#id-all-quizzes">Tous les quiz</a>
+            </li>
+            <li class="tab"><a href="#id-my-quizzes">Mes quiz</a></li>
+            <li class="tab"><a href="#id-my-answers">Mes réponses</a></li>
+          </ul>
+        </div>
+        <!-- nav-content -->
+      </nav>
+      <!-- nav-extended -->
+    </header>
+
+    <main>
+      <div>
+        <!-- class="container" -->
+        <!-- Un premier onglet pour tous les quizzes-->
+        <div id="id-all-quizzes">
+          <div class="row">
+
+			
+            <div class="col l4">
+			
+			<div id="listbtn" class="row">
+
+					<div class="input-field col offset-s2 ">
+					<input id="nbRes" type="number">
+					<label for="nbRes">Nb de résultats par page</label>
+					</div>
+					</br>
+					<button id="OK" class="waves-effect waves-light btn indigo" onclick="state.res=document.getElementById('nbRes').value; getQuizzes();">OK</button>
+			</div>
+			
+			<div class="row center-align">
+			Trier par:  
+			<button id="croiss" class="btn-floating btn waves-effect waves-light deep-orange" onclick="state.dir='asc';  getQuizzes();"><i class="material-icons ">call_made</i></button>
+			<button id="decroiss" class="btn-floating btn waves-effect waves-light blue-grey darken-2" onclick="state.dir='desc';  getQuizzes();"><i class="material-icons ">call_received</i></button>
+			<button id="date" class="btn-floating btn waves-effect waves-light amber accent-3" onclick="state.order='created_at';  getQuizzes();"><i class="material-icons ">access_time</i></button>
+			<button id="parTire" class="waves-effect waves-light btn red" onclick="state.order='title';  getQuizzes();">Titre</button>
+			<button id="parOwner_id" class="waves-effect waves-light btn grey lighten-1" onclick="state.order='owner_id';   getQuizzes();">Owner_id</button>
+			<button id="parQuiz_id" class="waves-effect waves-light btn indigo" onclick="state.order='quiz_id';   getQuizzes();">Quiz_id</button>
+			</div>
+
+              <div id="id-all-quizzes-list"></div>
+            </div>
+            <div class="col l8">
+              <div id="id-all-quizzes-main"></div>
+            </div>
+          </div>
+        </div>
+        <!-- Un second onglet pour ses propres quizzes-->
+        <div id="id-my-quizzes">
+          <div class="row">
+            <div class="col l4">
+              <div id="id-all-my-quizzes-list"></div>	
+             </div>
+			<div class="col l4">
+				<div id="id-all-my-quizzes-main"></div>
+            </div>
+            <div class="col l4">
+				<div id="id-all-my-quizzes-main2"></div>
+            </div>	
+          </div>
+        </div>
+        <!-- Un dernier onglet pour ses propres réponses-->
+        <div id="id-my-answers">
+          <div class="row">
+            <div class="col l4">
+              <div id="id-all-answers-list"></div>
+            </div>
+            <div class="col l8">
+              <div id="id-all-answers-main"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer></footer>
+
+    <footer class="page-footer grey darken-1">
+      <div class="footer-copyright">
+        <div class="container">
+          CC BY-NC-SA 3.0 FR
+          <a class="grey-text text-lighten-4 right" href="https://lifap5.univ-lyon1.fr/">lifap5.univ-lyon1.fr</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- l'ordre compte dans les scripts : ils sont lues puis interprétés DANS L'ORDRE -->
+    <script type="text/javascript" src="js/websocket.js" defer></script>
+    <script type="text/javascript" src="js/modeles.js" defer></script>
+    <script type="text/javascript" src="js/vues.js" defer></script>
+    <script type="text/javascript" src="js/app.js" defer></script>
+  </body>
+</html>
